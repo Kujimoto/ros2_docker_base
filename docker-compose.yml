@@ -1,0 +1,22 @@
+version: '2.4'
+services:
+
+  ros:  
+    network_mode: host
+    image: ros2_gazebo_tutorial:latest
+    build:
+      context: .
+      
+      dockerfile: Dockerfile
+    runtime: nvidia
+    ports:
+      - 8080:80
+      - 22:22
+    volumes:
+      - ./:/usr/app
+      - $HOME/.Xauthority:/root/.Xauthority
+      - /tmp/.X11-unix:/tmp/.x11-unix
+    tty: true
+    
+    environment:
+      - DISPLAY=${DISPLAY}
