@@ -1,7 +1,7 @@
 # Dashing with x11
-ros2 dashingの開発ベース用環境です。自分用に作っているので不具合への対応はできないと思ってください。
+ros2 dashingの開発ベース用環境です。
 公式のDockerイメージをベースにros-gazeboなど基本的なパッケージをインストールし、xでGUIを使用できるよう設定しています。
-また、手軽に試せるシミュレーション環境としてturtlebot3のドライバもインストールしてあります。
+また、turtlebot3のドライバもインストールしてあります。
 
 ## 使い方
 - ビルド
@@ -11,7 +11,8 @@ git clone https://
 cd dashing_env
 sudo docker-compose build
 ```
-ビルドにはそれなりの時間がかかると思います。成功したら、
+ビルドにはそれなりの時間がかかると思います。成功したら、以下のコマンドでdocker環境を立ち上げ、ros2を実行します。
+
 ```sh
 sudo docker-compose up -d
 # id確認
@@ -24,7 +25,8 @@ USER% sudo docker exec -it "container id" /bin/bash
 # ROS2の環境設定スクリプト
 root@USER% source /opt/ros/dashing/setup.bash
 ```
-
-gazeboのチュートリアルやhttp://gazebosim.org/tutorials?tut=ros2_installing&cat=connect_ros#Introduction
-TURTLEBOT3のシミュレーション立ち上げができるはず
+colconによるビルドのテストや
+gazeboを立ち上げhttp://gazebosim.org/tutorials?tut=ros2_installing&cat=connect_ros#Introduction
+テストができると思います。
+TURTLEBOT3のシミュレーションも試せるはずなのですが、モデルダウンロード周りでまだうまく行っていません。
 
